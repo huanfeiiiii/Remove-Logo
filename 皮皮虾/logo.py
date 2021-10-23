@@ -21,8 +21,8 @@ def get_water(self):
     # 去除水印
     dst = cv2.inpaint(src, mask, 3, cv2.INPAINT_NS)
     # 保存图片
-    cv2.imwrite('new\\' + str(getKey(10)) + ".jpeg", dst)  # 随机名称
-    # cv2.imwrite(self, dst)  # 原始名称
+    # cv2.imwrite('new\\' + str(getKey(10)) + ".jpeg", dst)  # 随机名称
+    cv2.imwrite('new\\' + os.path.basename(self), dst)  # 原始名称
     os.remove(path)
 
 
