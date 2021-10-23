@@ -11,6 +11,21 @@ import random
 import string
 
 
+def get_water(self):
+    """去除logo的主程序"""
+    # 读取图片
+    src = cv2.imread(self)
+    # 读取水印图片
+    path = black_logo(self)
+    mask = cv2.imread(path, cv2.IMREAD_GRAYSCALE)
+    # 去除水印
+    dst = cv2.inpaint(src, mask, 3, cv2.INPAINT_NS)
+    # 保存图片
+    cv2.imwrite('new\\' + str(getKey(10)) + ".jpeg", dst)  # 随机名称
+    # cv2.imwrite(self, dst)  # 原始名称
+    os.remove(path)
+
+
 def black_logo(self):
     """为了去除LOGO,将图片以外的部位涂黑,返回涂黑的图片地址"""
     # 读取图片
@@ -36,6 +51,7 @@ def black_logo(self):
 
 
 def getKey(self):
+    """返回指定数量的随机码"""
     data = string.ascii_letters + string.digits
     key = random.sample(data, self)
     keys = "".join(key)
