@@ -59,4 +59,4 @@ def getKey(self):
 
 
 if __name__ == "__main__":
-    black_logo('1602306306751.jpeg')
+    black_logo('old\\1634916832704.jpeg')
